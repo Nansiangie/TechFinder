@@ -21,15 +21,15 @@ class InterventionController extends Controller
 
     public function index()
     {
-        $interventions_list = intervention::with(['client', 'technicien', 'competence'])->paginate(10);
+        $interventions_list = Intervention::with(['client', 'technicien', 'competence'])->paginate(10);
         $formData = $this->getFormData();
         return view('intervention', array_merge(compact('interventions_list'), $formData));
     }
 
     public function edit(int $code_int)
     {
-        $intervention_edit = intervention::findOrFail($code_int);
-        $interventions_list = intervention::with(['client', 'technicien', 'competence'])->paginate(10);
+        $intervention_edit = Intervention::findOrFail($code_int);
+        $interventions_list = Intervention::with(['client', 'technicien', 'competence'])->paginate(10);
         $formData = $this->getFormData();
         return view('intervention', array_merge(compact('intervention_edit', 'interventions_list'), $formData));
     }
@@ -44,7 +44,7 @@ class InterventionController extends Controller
             'code_comp' => 'required|exists:competences,code_comp',
         ]);
 
-        intervention::create($request->all());
+        Intervention::create($request->all());
         flash()->success('Intervention planifiée.');
         return redirect()->route('web.interventions.index');
     }
