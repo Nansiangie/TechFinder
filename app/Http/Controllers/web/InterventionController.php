@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\web;
 
-use App\Models\intervention;
+use App\Models\Intervention;
 use App\Models\Utilisateur;
 use App\Models\Competence;
 use App\Http\Controllers\Controller;
