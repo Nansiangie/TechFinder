@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class intervention extends Model
+class Intervention extends Model
 {
     use HasFactory;
     protected $table = 'intervention';
@@ -17,7 +17,7 @@ class intervention extends Model
     protected $fillable = [
         'date_int',
         'description_int',
-        'code_user_client', 
+        'code_user_client',
         'code_user_tech',
         'code_comp',
     ];
